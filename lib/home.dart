@@ -1,35 +1,105 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_cake_shop_ui/screens/cakery_page.dart';
 import 'package:flutter_cake_shop_ui/widgets/navbar_widget.dart';
 
-class Home extends StatelessWidget {
+class Home extends StatefulWidget {
   const Home({super.key});
+
+  @override
+  State<Home> createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
+  TabController? _tabController;
+
+  @override
+  void initState() {
+    super.initState();
+    _tabController = TabController(length: 3, vsync: this);
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        centerTitle: true,
         backgroundColor: Colors.white,
+        elevation: 0.0,
+        centerTitle: true,
         leading: IconButton(
-          onPressed: () {},
           icon: const Icon(
             Icons.arrow_back,
+            color: Color(0xFF545D68),
           ),
+          onPressed: () {},
         ),
         title: const Text(
-          'FRISKA CAKERY',
+          'Raikhan Cakery',
           style: TextStyle(
             fontFamily: 'Varela',
-            fontSize: 20.0,
+            fontSize: 24.0,
             color: Color(0xFF545D68),
           ),
         ),
         actions: [
           IconButton(
-            onPressed: () {},
             icon: const Icon(
               Icons.notifications_none,
               color: Color(0xFF545D68),
+            ),
+            onPressed: () {},
+          ),
+        ],
+      ),
+      body: ListView(
+        padding: const EdgeInsets.symmetric(horizontal: 16),
+        children: [
+          const SizedBox(height: 8.0),
+          const Text('Menu',
+              style: TextStyle(
+                  fontFamily: 'Varela',
+                  fontSize: 40.0,
+                  fontWeight: FontWeight.bold)),
+          const SizedBox(height: 8.0),
+          TabBar(
+              controller: _tabController,
+              indicatorColor: Colors.transparent,
+              labelColor: const Color(0xFFC88D67),
+              isScrollable: true,
+              labelPadding: const EdgeInsets.only(right: 24),
+              unselectedLabelColor: const Color(0xFFCDCDCD),
+              tabs: const [
+                Tab(
+                  child: Text('Cake Box',
+                      style: TextStyle(
+                        fontFamily: 'Varela',
+                        fontSize: 20.0,
+                      )),
+                ),
+                Tab(
+                  child: Text('Cake Slice',
+                      style: TextStyle(
+                        fontFamily: 'Varela',
+                        fontSize: 20.0,
+                      )),
+                ),
+                Tab(
+                  child: Text('Chiffon',
+                      style: TextStyle(
+                        fontFamily: 'Varela',
+                        fontSize: 20.0,
+                      )),
+                )
+              ]),
+          SizedBox(
+            height: MediaQuery.of(context).size.height - 160.0,
+            width: double.infinity,
+            child: TabBarView(
+              controller: _tabController,
+              children: const [
+                CakeryPage(),
+                CakeryPage(),
+                CakeryPage(),
+              ],
             ),
           )
         ],

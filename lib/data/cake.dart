@@ -4,7 +4,7 @@ class Cake {
     required this.name,
     required this.price,
     required this.imageUrl,
-    required this.isFFavorite,
+    required this.isFavorite,
     required this.subMenu,
   });
 
@@ -12,7 +12,7 @@ class Cake {
   final String name;
   final String price;
   final String imageUrl;
-  final bool isFFavorite;
+  final bool isFavorite;
   final String subMenu;
 }
 
@@ -22,7 +22,7 @@ final List<Cake> listCakes = [
     name: 'Banana Cake',
     price: '79.000',
     imageUrl: 'assets/box1.jpeg',
-    isFFavorite: true,
+    isFavorite: true,
     subMenu: 'cake_box',
   ),
   Cake(
@@ -30,7 +30,7 @@ final List<Cake> listCakes = [
     name: 'Bolu Gula Aren',
     price: '94.000',
     imageUrl: 'assets/box2.jpeg',
-    isFFavorite: false,
+    isFavorite: false,
     subMenu: 'cake_box',
   ),
   Cake(
@@ -38,7 +38,7 @@ final List<Cake> listCakes = [
     name: 'Coffee Cake Pudding',
     price: '99.000',
     imageUrl: 'assets/box3.jpeg',
-    isFFavorite: false,
+    isFavorite: false,
     subMenu: 'cake_box',
   ),
   Cake(
@@ -46,7 +46,7 @@ final List<Cake> listCakes = [
     name: 'Pudding Cake Tiramisu',
     price: '89.000',
     imageUrl: 'assets/box4.jpeg',
-    isFFavorite: true,
+    isFavorite: true,
     subMenu: 'cake_box',
   ),
   Cake(
@@ -54,7 +54,15 @@ final List<Cake> listCakes = [
     name: 'Brownies Keju',
     price: '109.000',
     imageUrl: 'assets/box5.jpeg',
-    isFFavorite: false,
+    isFavorite: false,
+    subMenu: 'cake_box',
+  ),
+    Cake(
+    id: 6,
+    name: 'Brownies Almond',
+    price: '94.000',
+    imageUrl: 'assets/box6.jpeg',
+    isFavorite: false,
     subMenu: 'cake_box',
   ),
 ];
